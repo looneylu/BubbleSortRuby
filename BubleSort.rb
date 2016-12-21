@@ -1,18 +1,18 @@
 #!/usr/bin/env ruby
 
 def bubble_sort(num_array)
-    num_array_length = num_array.length
    
-    while num_array_length > 0 do
-       i = 1
-       while i < num_array_length do
-           num_array[i], num_array[i-1] = num_array[i-1], num_array[i] if num_array[i] < num_array[i-1]
-           i += 1
+    loop do
+       index = 1
+       swapped = false
+       while index < num_array.length  do
+           num_array[index], num_array[index-1], swapped, index = num_array[index-1], num_array[index], true, 1 if num_array[index] < num_array[index-1]
+           index += 1
        end
-       num_array_length -= 1
+       break unless swapped
     end
     
-    puts num_array
+    puts "#{num_array}"
 end
 
 bubble_sort([4,3,78,2,0,2])
